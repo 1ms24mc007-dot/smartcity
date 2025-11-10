@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'jdk21'   // Must match the name configured in Jenkins
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone your GitHub repo
+                git branch: 'master', url: 'https://github.com/PNP-RIT/java_demo'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                echo 'Compiling Java program...'
+                sh 'javac HelloWorld.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                echo 'Running Java program...'
+                sh 'java HelloWorld'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and execution successful!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
