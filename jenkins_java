@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clone your GitHub repo
-                git branch: 'main', url: 'https://github.com/PNP-RIT/java_demo'
+                git branch: 'main', url: 'https://github.com/1ms24mc007-dot/smartcity'
             }
         }
 
