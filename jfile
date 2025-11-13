@@ -1,7 +1,6 @@
 pipeline
 {
   agent any
-  {
     stages
     {
       stage('checkout')
@@ -24,7 +23,8 @@ pipeline
             sh "java javafile"
           }
       }
-      host
+    }
+      post
       {
         success
         {
@@ -35,6 +35,4 @@ pipeline
           echo "Failure!"
         }
       }
-    }
-  }
 }
