@@ -1,0 +1,40 @@
+pipeline
+{
+  agent any
+  {
+    stages
+    {
+      stage('checkout')
+      {
+        git branch:'main',url:'https://github.com/1ms24mc007-dot/smartcity' 
+      }
+      stage('Compile')
+      {
+        steps
+        {
+          echo "Compiling of the java file"
+          sh "javac javafile.java"
+        }
+      }
+      stage('Run')
+      {
+        steps
+          {
+            echo "Executing the java file"
+            sh "java javafile"
+          }
+      }
+      host
+      {
+        success
+        {
+          echo "Successfull!"
+        }
+        failure
+        {
+          echo "Failure!"
+        }
+      }
+    }
+  }
+}
