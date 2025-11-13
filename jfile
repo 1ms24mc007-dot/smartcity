@@ -26,6 +26,11 @@ pipeline
             sh "java javafile"
           }
       }
+      stage('Running Python file')
+      {
+        echo 'Running python file'
+        sh 'python3 pythonfile.py'
+      }
     }
       post
       {
