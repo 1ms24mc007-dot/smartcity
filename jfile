@@ -28,8 +28,11 @@ pipeline
       }
       stage('Running Python file')
       {
-        echo 'Running python file'
-        sh 'python3 pythonfile.py'
+        steps
+        {
+          echo 'Running python file'
+          sh 'python3 pythonfile.py'
+        }
       }
     }
       post
