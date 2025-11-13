@@ -5,7 +5,10 @@ pipeline
     {
       stage('checkout')
       {
-        git branch:'main',url:'https://github.com/1ms24mc007-dot/smartcity' 
+        steps
+        {
+          git branch:'main',url:'https://github.com/1ms24mc007-dot/smartcity'
+        }
       }
       stage('Compile')
       {
